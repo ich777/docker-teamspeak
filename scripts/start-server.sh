@@ -35,8 +35,16 @@ else
 fi
 chmod -R ${DATA_PERM} ${DATA_DIR}
 
-echo "---Sleep zZz---"
-sleep infinity
+echo "---Checking License---"
+if [ "${TS3SERVER_LICENSE}" != "accept" ]; then
+	echo "---License not accepted---"
+	echo 'Please set the environment variable TS3SERVER_LICENSE to "accept" in order to accept the license agreement.
+Alternatively, create a file named ".ts3server_license_accepted" in the working directory or start the server with the command line parameter "license_accepted=1".
+To view the license agreement set TS3SERVER_LICENSE to "view" in order to print the license to the console.
+Alternatively view the file "LICENSE" in your favorite text viewer yourself.'
+	echo "---Putting server into sleep mode---"
+	sleep infinity
+fi
 
 echo "---Starting TeamSpeak3---"
 cd ${DATA_DIR}
