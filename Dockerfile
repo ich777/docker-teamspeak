@@ -7,6 +7,7 @@ RUN apt-get update && \
 	rm -rf /var/lib/apt/lists/*
 
 ENV DATA_DIR="/teamspeak"
+ENV TS3SERVER_LICENSE=""
 ENV UMASK=000
 ENV UID=99
 ENV GID=100
