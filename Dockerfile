@@ -3,7 +3,7 @@ FROM ich777/debian-baseimage
 LABEL maintainer="admin@minenet.at"
 
 RUN apt-get update && \
-	apt-get -y install --no-install-recommends curl jq && \
+	apt-get -y install --no-install-recommends curl jq bzip2 && \
 	rm -rf /var/lib/apt/lists/*
 
 ENV DATA_DIR="/teamspeak"
