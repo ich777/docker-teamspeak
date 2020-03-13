@@ -20,6 +20,19 @@ else
 fi
 
 echo "---Preparing server---"
+echo "---Checking if 'ts3server.ini' is present---"
+if [ ! -f ${DATA_DIR}/ts3server.ini ]; then
+	echo "---'ts3server.ini' not found downloading...---"
+	cd ${DATA_DIR}
+	if wget -q -nc --show-progress --progress=bar:force:noscroll -O ts3server.ini https://raw.githubusercontent.com/ich777/docker-teamspeak/master/config/ts3server.ini ; then
+		echo "---Successfully downloaded 'ts3server.ini'!---"
+	else
+		echo "---Something went wrong, can't download 'ts3server.ini', putting server in sleep mode---"
+		sleep infinity
+	fi
+else
+	echo "---'ts3server.ini' found---"
+fi
 chmod -R ${DATA_PERM} ${DATA_DIR}
 
 echo "---Sleep zZz---"
