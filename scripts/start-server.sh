@@ -38,6 +38,7 @@ if [ ! -z "$LAT_V" ]; then
 		cp ${DATA_DIR}/query_ip_whitelist.txt /tmp/TS3
 		if [ -f ${DATA_DIR}/serverkey.dat ]; then
 			cp ${DATA_DIR}/serverkey.dat /tmp/TS3
+		fi
 		cp ${DATA_DIR}/ts3server.ini /tmp/TS3
 		if [ -f ${DATA_DIR}/ts3db_mariadb.ini ]; then
 			cp ${DATA_DIR}/ts3db_mariadb.ini /tmp/TS3
@@ -59,7 +60,7 @@ if [ ! -z "$LAT_V" ]; then
 		mv ${DATA_DIR}/teamspeak3-server_linux_amd64/* ${DATA_DIR}/
 		rm -R ${DATA_DIR}/teamspeak3-server_linux_amd64
 		cp -R /tmp/TS3/* ${DATA_DIR}
-        rm -R /tmp/TS3
+		rm -R /tmp/TS3
 		CUR_V="$(${DATA_DIR}/ts3server version | cut -d " " -f4)"
 	elif [ "${JENKINS_V}" == "$CUR_V" ]; then
 		echo "---Server versions match! Installed: v$CUR_V | Preferred: v${JENKINS_V}---"
