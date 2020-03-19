@@ -49,6 +49,7 @@ if [ ! -z "$LAT_V" ]; then
 		cp -R ${DATA_DIR}/files /tmp/TS3
 		cp -R ${DATA_DIR}/logs /tmp/TS3
 		rm -R ${DATA_DIR}/*
+		cd ${DATA_DIR}
 		if wget -q -nc --show-progress --progress=bar:force:noscroll -O ts3server.tar.bz2 "$DL_URL" ; then
 			echo "---Successfully downloaded TeamSpeak3!---"
 		else
