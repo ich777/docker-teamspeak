@@ -21,10 +21,11 @@ chown -R ${UID}:${GID} ${DATA_DIR}
 
 term_handler() {
 	kill -SIGTERM "$(pidof ts3server)"
-	while [ -e /proc/"$(pidof ts3server)" ]
+	while kill -0 "$(pidof ts3server)" 2>/dev/null
 	do
 		sleep 0.5
 	done
+	kill -SIGTERM $killpid
 	exit 143;
 }
 
