@@ -99,4 +99,4 @@ fi
 
 echo "---Starting TeamSpeak3---"
 cd ${DATA_DIR}
-${DATA_DIR}/ts3server
+${DATA_DIR}/ts3server ${EXTRA_START_PARAMS}
