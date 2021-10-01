@@ -97,6 +97,12 @@ Alternatively view the file "LICENSE" in your favorite text viewer yourself.'
 	sleep infinity
 fi
 
+if [ "${ENABLE_TSDNS}" == "true" ]; then
+	echo "---Starting TSDNS---"
+	cd ${DATA_DIR}/tsdns
+	${DATA_DIR}/tsdns/tsdnsserver &
+fi
+
 echo "---Starting TeamSpeak3---"
 cd ${DATA_DIR}
 ${DATA_DIR}/ts3server ${EXTRA_START_PARAMS}
